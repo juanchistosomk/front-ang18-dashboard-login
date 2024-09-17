@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ngx serve -s dist/dashboard-18/browser",
+    "start": "npx serve -s dist/dashboard-18/browser",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
