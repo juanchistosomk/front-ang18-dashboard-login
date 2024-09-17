@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { inject } from '@angular/core/testing';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from './core/services/auth.service';
 
 
 @Component({
@@ -9,6 +11,20 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'dashboard-18';
+  
+  constructor( private authService: AuthService ) {}
+
+
+  ngOnInit(): void {
+
+    if (this.authService.isAuthenticated())
+      this.authService.autoRefreshToken();
+    
+  }
+
+
+
+
 }
